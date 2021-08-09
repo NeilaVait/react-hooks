@@ -1,19 +1,20 @@
 import React, { useState } from 'react';
 
 function CounterHook() {
+  const [counter, setCounter] = useState(0);
+  const [name, setName] = useState('');
 
-
-  const arr = useState(0);
-  // console.log(arr);
-  const counter = arr[0]
-  const setCounter = arr[1]
-
-  return ( <div>
-    <h2>Counter</h2>
-    <h2>{counter}</h2>
-    <button>-</button>
-    <button onClick={() => setCounter(counter+1)}>+</button>
-  </div> );
+  return (
+    <div>
+      <h2>Counter of {name}</h2>
+      <h2>
+        {name} has clicked {counter} times
+      </h2>
+      <button onClick={() => setCounter(counter + 1)}>+</button>
+      <button onClick={() => setName('James')}>set name to James</button>
+      <input type="text" placeholder="enter name" value={name} onChange={(event) => setName(event.target.value)} />
+    </div>
+  );
 }
- 
+
 export default CounterHook;
