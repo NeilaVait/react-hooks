@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import useDocumentTitle from './../hook/useDocumentTitle';
 
 function CounterHook() {
   const [counter, setCounter] = useState(0);
@@ -7,15 +8,8 @@ function CounterHook() {
   // componentdidmouny
   // componentdidupdate
   // useEffect() vietoj dvieju virsuj
-  useEffect(() => {
-    console.log('useEffect()');
-    document.title = `${name} has clicked + ${counter} times`;
-    // componentWillUnmount - komponento pasalinimas pvz uzdaryti db prisijungima
-    return () => {
-      // veikia kaip componentWillUnmount kai antras useEffect argumentas yra []
-      console.log('clean up');
-    };
-  }, []);
+  // custom user hook
+  useDocumentTitle(`${name} has clicked + ${counter} times`);
 
   return (
     <div>
