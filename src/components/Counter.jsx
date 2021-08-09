@@ -20,9 +20,10 @@ class Counter extends Component {
 
   render() { 
     return ( <div>
-      <span>{this.state.count}</span>
-      <button onClick={this.handlePlus}>+</button>
+      <h1>Counter</h1>
+      <h2>{this.state.count}</h2>
       <button onClick={this.handleMinus}>-</button>
+      <button onClick={this.handlePlus}>+</button>
     </div> );
   }
 }
