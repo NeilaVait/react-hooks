@@ -3,6 +3,7 @@ import './App.css';
 // import Counter from './components/Counter';
 // import CounterHook from './components/CounterHook';
 import MoviePage from './context/MoviePage';
+import UserContext from './context/UserContext';
 
 class App extends Component {
   state = {
@@ -11,10 +12,12 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App container">
-        {/* <CounterHook /> */}
-        <MoviePage />
-      </div>
+      <UserContext.Provider value={this.state.userName}>
+        <div className="App container">
+          {/* <CounterHook /> */}
+          <MoviePage />
+        </div>
+      </UserContext.Provider>
     );
   }
 }
