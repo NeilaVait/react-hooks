@@ -13,9 +13,13 @@ class App extends Component {
     },
   };
 
+  handleLogin = (username) => {
+    console.log('handlelogin ran', username);
+  };
+
   render() {
     return (
-      <UserContext.Provider value={this.state.user}>
+      <UserContext.Provider value={{ user: this.state.user, onLogin: this.handleLogin }}>
         <div className="App container">
           {/* <CounterHook /> */}
           <MoviePage />

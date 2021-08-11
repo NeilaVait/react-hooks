@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import UserContext from './UserContext';
+import MovieRow from './MovieRow';
 
 class MovieList extends Component {
   // pasiekiamas visoje klaseje 2 budas
@@ -18,8 +19,9 @@ class MovieList extends Component {
           <div>
             <h1>movieList</h1>
             <p>
-              {userContext.name}({userContext.age}) likes this movie list
+              {userContext.user.name}({userContext.user.age}) likes this movie list
             </p>
+            <MovieRow />
           </div>
         )}
       </UserContext.Consumer>
