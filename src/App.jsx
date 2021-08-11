@@ -1,12 +1,13 @@
 import './App.css';
 // import Counter from './components/Counter';
-import CounterHook from './components/CounterHook';
+// import CounterHook from './components/CounterHook';
+import MoviePage from './context/MoviePage';
 
 function App() {
   return (
     <div className="App container">
-      {/* <Counter/> */}
-      <CounterHook />
+      {/* <CounterHook /> */}
+      <MoviePage />
     </div>
   );
 }
