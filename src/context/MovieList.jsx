@@ -2,10 +2,14 @@ import React, { Component } from 'react';
 import UserContext from './UserContext';
 
 class MovieList extends Component {
-  state = {};
+  componentDidMount() {
+    console.log('movie list mounted to dom');
+    console.log('usercontext', this.context);
+  }
 
   render() {
     return (
+      // kai norim renderyje context
       <UserContext.Consumer>
         {(userContext) => (
           <div>
@@ -19,5 +23,8 @@ class MovieList extends Component {
     );
   }
 }
+
+// kai norim context visur kitur
+MovieList.contextType = UserContext;
 
 export default MovieList;
