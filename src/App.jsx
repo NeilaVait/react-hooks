@@ -4,6 +4,7 @@ import './App.css';
 // import CounterHook from './components/CounterHook';
 import MoviePage from './context/MoviePage';
 import UserContext from './context/UserContext';
+import Login from './context/Login';
 
 class App extends Component {
   state = {
@@ -15,6 +16,7 @@ class App extends Component {
 
   handleLogin = (username) => {
     console.log('handlelogin ran', username);
+    this.setState({ user: { ...this.state.user, name: username } });
   };
 
   render() {
@@ -23,6 +25,7 @@ class App extends Component {
         <div className="App container">
           {/* <CounterHook /> */}
           <MoviePage />
+          <Login />
         </div>
       </UserContext.Provider>
     );
