@@ -7,12 +7,15 @@ import UserContext from './context/UserContext';
 
 class App extends Component {
   state = {
-    userName: 'james',
+    user: {
+      name: 'James',
+      age: 41,
+    },
   };
 
   render() {
     return (
-      <UserContext.Provider value={this.state.userName}>
+      <UserContext.Provider value={this.state.user}>
         <div className="App container">
           {/* <CounterHook /> */}
           <MoviePage />
