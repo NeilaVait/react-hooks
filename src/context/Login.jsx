@@ -6,7 +6,8 @@ export default function Login() {
   console.log(userContext);
   return (
     <div>
-      <button onClick={() => userContext.onLogin('Bob')}>Login</button>
+      <button onClick={() => userContext.onLogin('Bob')}>Login Bob</button>
+      <button onClick={() => userContext.onLogin('James')}>Login James</button>
     </div>
   );
 }
