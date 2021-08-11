@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import UserContext from './UserContext';
 
 class MovieList extends Component {
+  // pasiekiamas visoje klaseje 2 budas
+  static contextType = UserContext;
+
   componentDidMount() {
     console.log('movie list mounted to dom');
     console.log('usercontext', this.context);
@@ -25,6 +28,6 @@ class MovieList extends Component {
 }
 
 // kai norim context visur kitur
-MovieList.contextType = UserContext;
+// MovieList.contextType = UserContext;
 
 export default MovieList;
