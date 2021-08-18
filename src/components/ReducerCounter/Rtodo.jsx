@@ -6,7 +6,7 @@ function Rtodo({ item, dispatch }) {
     <li>
       <span style={{ color: item.done ? 'lightgrey' : 'black' }}>{item.title}</span>
       <button onClick={() => dispatch({ type: ACTION.TOGGLE_TODO, payload: item.id })}>Toggle</button>
-      <button>Delete</button>
+      <button onClick={() => dispatch({ type: ACTION.DELETE_TODO, payload: item.id })}>Delete</button>
     </li>
   );
 }

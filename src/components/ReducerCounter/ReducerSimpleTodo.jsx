@@ -3,7 +3,8 @@ import Rtodo from './Rtodo';
 
 export const ACTION = {
   ADD_TODO: 'add-todo',
-  TOGGLE_TODO: 'toggle-todo',
+  TOGGLE_TODO: 'toggle_todo',
+  DELETE_TODO: 'delete_todo',
 };
 
 function todoReducer(todosArr, action) {
@@ -14,6 +15,10 @@ function todoReducer(todosArr, action) {
       return todosArr.map((t) => {
         if (action.payload === t.id) return { ...t, done: !t.done };
         return t;
+      });
+    case ACTION.DELETE_TODO:
+      return todosArr.filter((t) => {
+        return t.id !== action.payload;
       });
     default:
       return todosArr;
@@ -42,12 +47,17 @@ function ReducerSimpleTodo() {
         <h4>ReducerSimpleTodo</h4>
         <input onChange={(e) => setTitle(e.target.value)} value={title} type="text" placeholder="Enter todo" />
       </form>
-      <h5>List</h5>
-      <ul>
-        {todosArr.map((t) => (
-          <Rtodo key={t.id} item={t} dispatch={dispatch} />
-        ))}
-      </ul>
+      {todosArr.length > 0 && (
+        <div>
+          <h5>List</h5>
+          <ul>
+            {todosArr.map((t) => (
+              <Rtodo key={t.id} item={t} dispatch={dispatch} />
+            ))}
+          </ul>
+        </div>
+      )}
+      {todosArr.length === 0 && <p>No todos at the moment</p>}
     </>
   );
 }
