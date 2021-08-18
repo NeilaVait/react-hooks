@@ -1,14 +1,15 @@
 import React, { useReducer } from 'react';
 
 function countReducer(state, action) {
-  if (action.type === 'increment') {
-    return { count: state.count + 1 };
-  }
-  if (action.type === 'decrement') {
-    return { count: state.count - 1 };
-  }
-  if (action.type === 'reset') {
-    return { count: 0 };
+  switch (action.type) {
+    case 'increment':
+      return { count: state.count + 1 };
+    case 'decrement':
+      return { count: state.count - 1 };
+    case 'reset':
+      return { count: 0 };
+    default:
+      return state;
   }
 }
 
