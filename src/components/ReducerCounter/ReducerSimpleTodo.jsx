@@ -10,7 +10,11 @@ function todoReducer(todosArr, action) {
   switch (action.type) {
     case ACTION.ADD_TODO:
       return [...todosArr, newTodo(action.payload)];
-
+    case ACTION.TOGGLE_TODO:
+      return todosArr.map((t) => {
+        if (action.payload === t.id) return { ...t, done: !t.done };
+        return t;
+      });
     default:
       return todosArr;
   }
